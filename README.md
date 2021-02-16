@@ -10,10 +10,11 @@ Aplikasi web ini terintegrasi dengan aplikasi android yang digunakan oleh pasien
 Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen dalam darah (Spo2) dan denyut jantung per menit (Bpm). Hardware ini berbasiskan mikrokontroler ESP8266 yang mengirimkan data Spo2 dan Bpm ke platform web (Thingspeak). Data kemudian akan diakses oleh aplikasi android saat pasien melakukan monitoing dan disimpan ke website Hipoksia. Proses pemantauan pasien dilakukan sebanyak 3 kali sekali dalam 24 jam selama 10 - 15 detik untuk sekali monitoring.
 
 # Spesifikasi API
-- [Autentikasi] (#autentikasi)
-    - [Login] (#login)
-    - [Register] (#register)
-    - [Logout] (#logout)
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+- [Autentikasi](#autentikasi)
+    - [Login](#login)
+    - [Register](#register)
+    - [Logout](#logout)
 
 
 # Detail API
