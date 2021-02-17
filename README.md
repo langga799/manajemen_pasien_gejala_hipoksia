@@ -37,12 +37,90 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 #### <a name="l_dokter"></a>Login Dokter
 #### <a name="l_admin"></a>Login Admin
 #### <a name="l_pasien"></a>Login Pasien
+Request : 
+- Method : POST
+- Endpoint : 'api/login'
+- Header : 
+    - Content-Type : application/json
+    - Accept : application/json
+- Body
+```json
+{
+    "email": "example@gmail.com",
+    "password": "example_password",
+}
+```
+
+Response : 
+- Success
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "token_type": "Bearer",
+    "access_token": "example_token",
+    "user": {
+        "name": "example_name",
+        "email": "example_name@gmail.com",
+        "created_at": "2021-02-17T16:16:36.000000Z",
+        "updated_at": "2021-02-17T16:16:36.000000Z"
+    }
+}
+```            
+- Error
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "pesan gagal"
+}
+```  
 
 ### <a name="register"></a>Register
 #### <a name="r_super_admin"></a>Register Super Admin
 #### <a name="r_dokter"></a>Register Dokter
 #### <a name="r_admin"></a>Register Admin
 #### <a name="r_pasien"></a>Register Pasien
+Request : 
+- Method : POST
+- Endpoint : 'api/register'
+- Header : 
+    - Content-Type : application/json
+    - Accept : application/json
+- Body
+```json
+{
+    "name": "example name",
+    "email": "example@gmail.com",
+    "password": "example_password",
+    "password_confirmation": "example_password",
+}
+```
+
+Response : 
+- Success
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "token_type": "Bearer",
+    "access_token": "example_token",
+    "user": {
+        "name": "example_name",
+        "email": "example_name@gmail.com",
+        "created_at": "2021-02-17T16:16:36.000000Z",
+        "updated_at": "2021-02-17T16:16:36.000000Z"
+    }
+}
+```            
+- Error
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "pesan gagal"
+}
+```  
 
 ### <a name="logout"></a>Logout
 #### <a name="lg_super_admin"></a>Logout Super Admin
