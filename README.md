@@ -27,6 +27,11 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         - [Dokter](#lg_dokter)
         - [Admin](#lg_admin)
         - [Pasien](#lg_pasien)
+    - [Update](#update)
+        - [Super Admin](#up_super_admin)
+        - [Dokter](#up_dokter)
+        - [Admin](#up_admin)
+        - [Pasien](#up_pasien)
 
 
 # Detail API
@@ -41,7 +46,6 @@ Request :
 - Method : POST
 - Endpoint : 'api/login'
 - Header : 
-    - Content-Type : application/json
     - Accept : application/json
 - Body
 ```json
@@ -59,7 +63,9 @@ Response :
     "status": "berhasil",
     "token_type": "Bearer",
     "access_token": "example_token",
+    "token_id": "example_token_id",
     "user": {
+        "id": "user_id"
         "name": "example_name",
         "email": "example_name@gmail.com",
         "created_at": "2021-02-17T16:16:36.000000Z",
@@ -85,7 +91,6 @@ Request :
 - Method : POST
 - Endpoint : 'api/register'
 - Header : 
-    - Content-Type : application/json
     - Accept : application/json
 - Body
 ```json
@@ -105,7 +110,9 @@ Response :
     "status": "berhasil",
     "token_type": "Bearer",
     "access_token": "example_token",
+    "token_id": "example_token_id",
     "user": {
+        "id": "user_id"
         "name": "example_name",
         "email": "example_name@gmail.com",
         "created_at": "2021-02-17T16:16:36.000000Z",
@@ -127,4 +134,82 @@ Response :
 #### <a name="lg_dokter"></a>Logout Dokter
 #### <a name="lg_admin"></a>Logout Admin
 #### <a name="lg_pasien"></a>Logout Pasien
+Request : 
+- Method : POST
+- Endpoint : 'api/logout'
+- Header : 
+    - Accept : application/json
+- Body
+```json
+{
+    "token_id": "example_token_id",
+}
+```
 
+Response : 
+- Success
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "message": "pesan logout"
+}
+```            
+- Error
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "pesan logout"
+}
+```  
+
+### <a name="update"></a>Update
+#### <a name="up_super_admin"></a>Update Super Admin
+#### <a name="up_dokter"></a>Update Dokter
+#### <a name="up_admin"></a>Update Admin
+#### <a name="up_pasien"></a>Update Pasien
+Request : 
+- Method : POST
+- Endpoint : 'api/update'
+- Header : 
+    - Accept : application/json
+    - Authorization : Bearer
+- Body
+```json
+{
+    "jenis_kelamin": "jenis_kelamin_pasien",
+    "alamat": "alamat_pasien",
+    "tanggal_lahir: "tanggal_lahir_pasien"
+    "phone": "nomor_telepon_pasien"
+}
+```
+
+Response : 
+- Success
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "message": "data pasien telah di update",
+    "user": {
+        "id": id_pasien,
+        "name": "nama_paisen",
+        "email": "email_pasien",
+        "jenis_kelamin": "jenis_kelamin_pasien",
+        "alamat": "alamat_pasien",
+        "tangggal_lahir": "tanggal_lahir_pasien",
+        "phone": "nomor_telepon_pasien",
+        "created_at": "2021-02-18T07:44:04.000000Z",
+        "updated_at": "2021-02-18T07:45:46.000000Z"
+    }
+}
+```            
+- Error
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "pesan update"
+}
+```  
