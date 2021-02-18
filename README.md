@@ -65,7 +65,7 @@ Response :
     "access_token": "example_token",
     "token_id": "example_token_id",
     "user": {
-        "id": "user_id"
+        "id": "user_id",
         "name": "example_name",
         "email": "example_name@gmail.com",
         "created_at": "2021-02-17T16:16:36.000000Z",
@@ -112,7 +112,7 @@ Response :
     "access_token": "example_token",
     "token_id": "example_token_id",
     "user": {
-        "id": "user_id"
+        "id": "user_id",
         "name": "example_name",
         "email": "example_name@gmail.com",
         "created_at": "2021-02-17T16:16:36.000000Z",
@@ -180,7 +180,7 @@ Request :
 {
     "jenis_kelamin": "jenis_kelamin_pasien",
     "alamat": "alamat_pasien",
-    "tanggal_lahir: "tanggal_lahir_pasien"
+    "tanggal_lahir": "tanggal_lahir_pasien",
     "phone": "nomor_telepon_pasien"
 }
 ```
@@ -193,7 +193,7 @@ Response :
     "status": "berhasil",
     "message": "data pasien telah di update",
     "user": {
-        "id": id_pasien,
+        "id": 1,
         "name": "nama_paisen",
         "email": "email_pasien",
         "jenis_kelamin": "jenis_kelamin_pasien",
