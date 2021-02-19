@@ -32,6 +32,11 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         - [Dokter](#up_dokter)
         - [Admin](#up_admin)
         - [Pasien](#up_pasien)
+    - [Upload Photo](#photo)
+        - [Super Admin](#ph_super_admin)
+        - [Dokter](#ph_dokter)
+        - [Admin](#ph_admin)
+        - [Pasien](#ph_pasien)
 
 
 # Detail API
@@ -213,3 +218,46 @@ Response :
     "message": "pesan update"
 }
 ```  
+
+### <a name="photo"></a>Update
+#### <a name="ph_super_admin"></a>Upload Photo Super Admin
+#### <a name="ph_dokter"></a>Upload Photo Dokter
+#### <a name="ph_admin"></a>Upload Photo Admin
+#### <a name="ph_pasien"></a>Upload Photo Pasien
+Request : 
+- Method : POST
+- Endpoint : 'api/update'
+- Header : 
+    - Accept : application/json
+    - Authorization : Bearer
+- Body
+```json
+{
+    "gambar": "gambar.jpg",
+}
+```
+
+Response : 
+- Success
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "message": "pesan berhasil",
+    "user": {
+        "id": 1,
+        "name": "nama_pasien",
+        "photo": "namafoto.jpg",
+        "created_at": "2021-02-18T05:30:33.000000Z",
+        "updated_at": "2021-02-19T04:09:55.000000Z"
+    }
+}
+```            
+- Error
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "pesan error upload foto"
+}
+```     
