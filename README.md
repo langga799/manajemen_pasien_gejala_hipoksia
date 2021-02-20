@@ -18,11 +18,12 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 5. npm install
 6. npm run dev
 7. buat database di php my admin
-8. php artisan key:generate
-9. setup database .env
-10. php artisan migrate
-11. php artisan passport:install --force
-12. php artisan serv
+8. ubah nama file .env.example menjadi .env
+9. php artisan key:generate
+10. setup database .env
+11. php artisan migrate
+12. php artisan passport:install --force
+13. php artisan serv
 ```
 
 # Spesifikasi API
