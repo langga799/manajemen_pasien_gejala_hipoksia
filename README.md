@@ -15,11 +15,14 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 2. git clone https://github.com/yofan2408/manajemen_pasien_gejala_hipoksia.git
 3. cd manajemen_pasien_gejala_hipoksia
 4. composer install
-5. buat database di php my admin
-6. setup database .env
-7. php artisan migrate
-8. php artisan passport:install --force
-9. php artisan serv
+5. npm install
+6. npm run dev
+7. buat database di php my admin
+8. php artisan key:generate
+9. setup database .env
+10. php artisan migrate
+11. php artisan passport:install --force
+12. php artisan serv
 ```
 
 # Spesifikasi API
