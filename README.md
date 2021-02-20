@@ -21,8 +21,8 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 8. ubah nama file .env.example menjadi .env
 9. php artisan key:generate
 10. setup database .env
-11. php artisan migrate
-12. php artisan passport:install --force
+11. php artisan migrate --seed
+12. php artisan passport:install
 13. php artisan serv
 ```
 
