@@ -9,6 +9,23 @@ Aplikasi web ini terintegrasi dengan aplikasi android yang digunakan oleh pasien
 ## Integrasi Hardware
 Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen dalam darah (Spo2) dan denyut jantung per menit (Bpm). Hardware ini berbasiskan mikrokontroler ESP8266 yang mengirimkan data Spo2 dan Bpm ke platform web (Thingspeak). Data kemudian akan diakses oleh aplikasi android saat pasien melakukan monitoing dan disimpan ke website Hipoksia. Proses pemantauan pasien dilakukan sebanyak 3 kali sekali dalam 24 jam selama 10 - 15 detik untuk sekali monitoring.
 
+# Cara Install
+```bash
+1. buka git bash
+2. git clone https://github.com/yofan2408/manajemen_pasien_gejala_hipoksia.git
+3. cd manajemen_pasien_gejala_hipoksia
+4. composer install
+5. npm install
+6. npm run dev
+7. buat database di php my admin
+8. ubah nama file .env.example menjadi .env
+9. php artisan key:generate
+10. setup database .env
+11. php artisan migrate --seed
+12. php artisan passport:install
+13. php artisan serv
+```
+
 # Spesifikasi API
 <!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 - [Autentikasi](#autentikasi)
