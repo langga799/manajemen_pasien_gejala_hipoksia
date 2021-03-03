@@ -4,10 +4,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>@yield('title')</title>
+<title>Hipoksia</title>
 
 {{-- CSS Build Mix --}}
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 
 @stack('css')

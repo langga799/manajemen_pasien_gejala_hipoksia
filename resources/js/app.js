@@ -1,3 +1,5 @@
 require("./bootstrap");
-require("./jquery/jquery.slim");
+// Bootstrap CSS
 require("./bootstrap/bootstrap.bundle");
+// Landing Page
+require("./layout/landing");
