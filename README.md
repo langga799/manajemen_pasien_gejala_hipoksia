@@ -30,29 +30,14 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 <!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 - [Autentikasi](#autentikasi)
     - [Login](#login)
-        - [Super Admin](#l_super_admin)
-        - [Dokter](#l_dokter)
-        - [Admin](#l_admin)
         - [Pasien](#l_pasien)
     - [Register](#register)
-        - [Super Admin](#r_super_admin)
-        - [Dokter](#r_dokter)
-        - [Admin](#r_admin)
         - [Pasien](#r_pasien)
     - [Logout](#logout)
-        - [Super Admin](#lg_super_admin)
-        - [Dokter](#lg_dokter)
-        - [Admin](#lg_admin)
         - [Pasien](#lg_pasien)
     - [Update](#update)
-        - [Super Admin](#up_super_admin)
-        - [Dokter](#up_dokter)
-        - [Admin](#up_admin)
         - [Pasien](#up_pasien)
     - [Upload Photo](#photo)
-        - [Super Admin](#ph_super_admin)
-        - [Dokter](#ph_dokter)
-        - [Admin](#ph_admin)
         - [Pasien](#ph_pasien)
 
 
@@ -60,9 +45,6 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 
 ## Autentikasi
 ### <a name="login"></a>Login
-#### <a name="l_super_admin"></a>Login Super Admin
-#### <a name="l_dokter"></a>Login Dokter
-#### <a name="l_admin"></a>Login Admin
 #### <a name="l_pasien"></a>Login Pasien
 Request : 
 - Method : POST
@@ -105,9 +87,6 @@ Response :
 ```  
 
 ### <a name="register"></a>Register
-#### <a name="r_super_admin"></a>Register Super Admin
-#### <a name="r_dokter"></a>Register Dokter
-#### <a name="r_admin"></a>Register Admin
 #### <a name="r_pasien"></a>Register Pasien
 Request : 
 - Method : POST
@@ -152,9 +131,6 @@ Response :
 ```  
 
 ### <a name="logout"></a>Logout
-#### <a name="lg_super_admin"></a>Logout Super Admin
-#### <a name="lg_dokter"></a>Logout Dokter
-#### <a name="lg_admin"></a>Logout Admin
 #### <a name="lg_pasien"></a>Logout Pasien
 Request : 
 - Method : POST
@@ -187,9 +163,6 @@ Response :
 ```  
 
 ### <a name="update"></a>Update
-#### <a name="up_super_admin"></a>Update Super Admin
-#### <a name="up_dokter"></a>Update Dokter
-#### <a name="up_admin"></a>Update Admin
 #### <a name="up_pasien"></a>Update Pasien
 Request : 
 - Method : POST
@@ -237,9 +210,6 @@ Response :
 ```  
 
 ### <a name="photo"></a>Update
-#### <a name="ph_super_admin"></a>Upload Photo Super Admin
-#### <a name="ph_dokter"></a>Upload Photo Dokter
-#### <a name="ph_admin"></a>Upload Photo Admin
 #### <a name="ph_pasien"></a>Upload Photo Pasien
 Request : 
 - Method : POST
