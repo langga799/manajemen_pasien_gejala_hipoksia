@@ -39,7 +39,8 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         - [Pasien](#up_pasien)
     - [Upload Photo](#photo)
         - [Pasien](#ph_pasien)
-
+    - [Get Photo](#g_photo)
+        - [Pasien](#get_photo)
 
 # Detail API
 
@@ -248,3 +249,6 @@ Response :
     "message": "pesan error upload foto"
 }
 ```     
+
+### <a name="g_photo"></a>Get Photo
+#### <a name="get_pasien"></a>Get Photo Pasien
