@@ -107,10 +107,6 @@ Response :
 
 ## <a name="register"></a>Register
 
-# <<<<<<< HEAD
-
-### <a name="register"></a>Register
-
 #### <a name="r_pasien"></a>Register Pasien
 
 Request :
@@ -163,10 +159,6 @@ Response :
 
 ## <a name="logout"></a>Logout
 
-# <<<<<<< HEAD
-
-### <a name="logout"></a>Logout
-
 #### <a name="lg_pasien"></a>Logout Pasien
 
 Request :
@@ -206,10 +198,6 @@ Response :
 ```
 
 ## <a name="update"></a>Update
-
-# <<<<<<< HEAD
-
-### <a name="update"></a>Update
 
 #### <a name="up_pasien"></a>Update Pasien
 
@@ -265,11 +253,7 @@ Response :
 }
 ```
 
-## <a name="photo"></a>Update
-
-# <<<<<<< HEAD
-
-### <a name="photo"></a>Update
+## <a name="photo"></a>Update Photo
 
 #### <a name="ph_pasien"></a>Upload Photo Pasien
 
