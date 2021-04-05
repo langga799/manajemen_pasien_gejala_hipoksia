@@ -111,8 +111,6 @@ Response :
 
 ### <a name="register"></a>Register
 
-> > > > > > > 5522791803c529503935ed7c37f8f530bbd7c348
-
 #### <a name="r_pasien"></a>Register Pasien
 
 Request :
@@ -169,8 +167,6 @@ Response :
 
 ### <a name="logout"></a>Logout
 
-> > > > > > > 5522791803c529503935ed7c37f8f530bbd7c348
-
 #### <a name="lg_pasien"></a>Logout Pasien
 
 Request :
@@ -214,8 +210,6 @@ Response :
 # <<<<<<< HEAD
 
 ### <a name="update"></a>Update
-
-> > > > > > > 5522791803c529503935ed7c37f8f530bbd7c348
 
 #### <a name="up_pasien"></a>Update Pasien
 
@@ -276,8 +270,6 @@ Response :
 # <<<<<<< HEAD
 
 ### <a name="photo"></a>Update
-
-> > > > > > > 5522791803c529503935ed7c37f8f530bbd7c348
 
 #### <a name="ph_pasien"></a>Upload Photo Pasien
 
@@ -405,8 +397,4 @@ Response :
     "status": "failed",
     "message": "check your param or invalid token"
 }
-```
-
-```
-
 ```
