@@ -31,6 +31,7 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 14. php artisan serv
 ```
 
+<<<<<<< HEAD
 # API Android
 
 -   [Autentikasi](#autentikasi)
@@ -57,6 +58,28 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 
 ## <a name="login"></a>Login
 
+=======
+# Spesifikasi API
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+- [Autentikasi](#autentikasi)
+    - [Login](#login)
+        - [Pasien](#l_pasien)
+    - [Register](#register)
+        - [Pasien](#r_pasien)
+    - [Logout](#logout)
+        - [Pasien](#lg_pasien)
+    - [Update](#update)
+        - [Pasien](#up_pasien)
+    - [Upload Photo](#photo)
+        - [Pasien](#ph_pasien)
+    - [Get Photo](#g_photo)
+        - [Pasien](#get_photo)
+
+# Detail API
+
+## Autentikasi
+### <a name="login"></a>Login
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
 #### <a name="l_pasien"></a>Login Pasien
 
 Request :
@@ -107,6 +130,10 @@ Response :
 
 ## <a name="register"></a>Register
 
+<<<<<<< HEAD
+=======
+### <a name="register"></a>Register
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
 #### <a name="r_pasien"></a>Register Pasien
 
 Request :
@@ -159,6 +186,10 @@ Response :
 
 ## <a name="logout"></a>Logout
 
+<<<<<<< HEAD
+=======
+### <a name="logout"></a>Logout
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
 #### <a name="lg_pasien"></a>Logout Pasien
 
 Request :
@@ -199,6 +230,10 @@ Response :
 
 ## <a name="update"></a>Update
 
+<<<<<<< HEAD
+=======
+### <a name="update"></a>Update
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
 #### <a name="up_pasien"></a>Update Pasien
 
 Request :
@@ -255,6 +290,10 @@ Response :
 
 ## <a name="photo"></a>Update
 
+<<<<<<< HEAD
+=======
+### <a name="photo"></a>Update
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
 #### <a name="ph_pasien"></a>Upload Photo Pasien
 
 Request :
@@ -299,6 +338,7 @@ Response :
     "status": "gagal",
     "message": "pesan error upload foto"
 }
+<<<<<<< HEAD
 ```
 
 # Reset Password
@@ -382,3 +422,9 @@ Response :
     "message": "check your param or invalid token"
 }
 ```
+=======
+```     
+
+### <a name="g_photo"></a>Get Photo
+#### <a name="get_pasien"></a>Get Photo Pasien
+>>>>>>> 5522791803c529503935ed7c37f8f530bbd7c348
