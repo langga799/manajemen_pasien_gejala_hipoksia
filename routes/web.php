@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('landing');
 });
+Route::get('/login', function(){
+    return view('auth.login');
+});
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
-Auth::routes();
+Route::middleware('auth')->group(function(){
+    Route::get('/home', [LoginController::class, 'index'])->name('home');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+

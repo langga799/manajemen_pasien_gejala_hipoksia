@@ -1,0 +1,1 @@
+Change your password here <a href="http://localhost:8000/patient/{{ $token }}">here</a>

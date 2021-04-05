@@ -1,0 +1,46 @@
+/* ----------------
+Global CSS
+------------------- */
+:root {
+    --main-color: #474af1;
+    --color-1: #4a4cf6;
+    --color-2: #91b3fa;
+    --color-3: #fe7062;
+    --color-4: #120878;
+    --color-5: #3c3c3c;
+    --black-900: #000000;
+    --black-400: #555555;
+    --black-100: #f7f7f7;
+    --black-000: #ffffff;
+    --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-x: hidden;
+    background-color: #fff;
+    line-height: 1.5;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.section-padding {
+    padding: 100px 0;
+}

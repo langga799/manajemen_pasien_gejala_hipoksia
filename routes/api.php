@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\PasienController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\ApiForgotPasswordController;
+use App\Http\Controllers\Api\PatientAuthApiController;
+use App\Http\Controllers\Api\PatientProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register', [PasienController::class, 'register']);
-Route::post('/login', [PasienController::class, 'login']);
-Route::post('/logout', [PasienController::class, 'logout']);
+Route::prefix('patient')->group(function(){
+    
+    /**
+     * * Route yang ditujukan untuk autententikasi pasien
+     */
+    Route::post('/register', [PatientAuthApiController::class, 'register']);
+    Route::post('/login', [PatientAuthApiController::class, 'login']);
+    Route::post('/logout', [PatientAuthApiController::class, 'logout']);
+    Route::post('/forgot-password', [ApiForgotPasswordController::class, 'forgotPassword']);
+    Route::post('/reset-password', [ApiForgotPasswordController::class, 'resetPassword']);
 
-Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('/update', [PasienController::class, 'update']);
-    Route::post('/add-profile-photo', [PasienController::class, 'saveUserProfile']);
+    Route::group(['middleware' => 'auth:patientapi'], function(){
+        Route::post('/update', [PatientProfileController::class, 'update']);
+        Route::post('/add-profile-photo', [PatientProfileController::class, 'saveUserProfile']);
+    });
 });
 
 
-Route::get('/get-tokens', [PasienController::class, 'getAllAccessToken']);
+
+
+

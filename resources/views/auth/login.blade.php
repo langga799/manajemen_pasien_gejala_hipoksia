@@ -1,73 +1,71 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <title>Login</title>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    {{-- CSS Build Mix --}}
+    <link rel="stylesheet" href="{{ asset('css/login-page.css') }}">
+</head>
+<body>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    {{-- Preloader Start --}}
+    <div class="base-load preloader">
+        <span></span>
+    </div>
+    {{-- Preloader End --}}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+    {{-- Login Start --}}
+    <section class="login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 bg-blue">
+                    <div class="app-img">
+                        <img src="{{ asset('storage/web-picture/splash-screen-app.png') }}" alt="splash-screen-app">
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <div class="content">
+                        <div class="title-text">
+                            <h2>AmadO<span>2</span></h2>
+                            <h4>Log In</h4>
+                        </div>
+                        <form method="POST" action="{{ route('login') }}" autocomplete="off">
+                            @csrf
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input onfocus="this.value=''" type="email" name="email" class="form-login form-control-user @error('email') is-invalid @enderror" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input onfocus="this.value=''" type="password" name="password" class="form-login form-control-user @error('password') is-invalid @enderror" placeholder="Password" id="exampleInputPassword1">
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                            <button autocomplete="off" type="submit" class="btn btn-primary bg-blue">Submit</button>
+                        </form>
+                        <div class="check">
+                            <div class="forgot-password">
+                                <a href="#">Lupa Password?</a>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </section>
+    {{-- Login End --}}
+    
+    <script src="{{ asset('/js/login-page.js') }}"></script>
+</body>
+</html>
+

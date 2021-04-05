@@ -1,0 +1,8 @@
+/* Bootstrap */
+@import url("../bootstrap/bootstrap.min.css");
+/* Global CSS */
+@import url("../global/global.css");
+/* Animation */
+@import url("../animation/animation.css");
+/* Login Style */
+@import url("../style/login.css");

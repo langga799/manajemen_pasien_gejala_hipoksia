@@ -3,11 +3,20 @@
 
 <head>
 
-  @include('_includes.heading')
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Hipoksia</title>
+
+  {{-- CSS Build Mix --}}
+  <link rel="stylesheet" href="{{ asset('css/landing-page.css') }}">
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-bs-spy="scroll" data-bs-target=".navbar">
 
     {{-- Preloader Start --}}
     <div class="base-load preloader">
@@ -16,19 +25,16 @@
     {{-- Preloader End --}}
 
     {{-- Navbar Section Start --}}
-    <nav class="navbar navbar-expand-lg fixed-top">
-     <div class="container">
-
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
         <a class="navbar-brand" href="#home">AmadO<span>2</span></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i><img src="{{ asset('storage/icon/bars-solid.svg') }}" alt=""></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i><img src="{{ asset('storage/icon/bars-solid.svg') }}" alt="bars"></i>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#home">Beranda</a>
+              <a class="nav-link" href="#home">Beranda</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#about">Tentang</a>
@@ -40,16 +46,16 @@
               <a class="nav-link" href="#contact">Kontak</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-1" href="#">Login</a>
+              <a class="nav-link btn btn-1" href="{{ route('login') }}">Login</a>
             </li>
           </ul>
         </div>
-     </div>
+      </div>
     </nav>
     {{-- Navbar Section End --}}
 
     {{-- Home Section Start --}}
-    <section class="home"  id="home">
+    <section class="home" id="home">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6 col-lg-7">
@@ -185,7 +191,7 @@
     {{-- Section How it Works End --}}
 
     {{-- Download App Section Start --}}
-    <section class="download-app section-padding" id="download-app">
+    <section class="download-app section-padding">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-6 d-flex justify-content-center align-items-center">
           <div class="download-content">
@@ -237,7 +243,8 @@
     </footer>
     {{-- Contact Section End --}}
     
-  @include('_includes.footer')
+    
+    <script src="{{ asset('/js/landing-page.js') }}"></script>
 
 </body>
 

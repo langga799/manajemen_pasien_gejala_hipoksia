@@ -11,6 +11,21 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-    .css("resources/css/app.css", "public/css")
+//  Landing Page Mix
+mix
+    /*------------------
+          JS file
+    -------------------- */
+    // Landing Page
+    .js("resources/js/layout/landing-page.js", "public/js")
+    // Login Page
+    .js("resources/js/layout/login-page.js", "public/js")
+
+    /*------------------
+          CSS file
+    -------------------- */
+    // Landing Page
+    .css("resources/css/layout/landing-page.css", "public/css")
+    // Login Page
+    .css("resources/css/layout/login-page.css", "public/css")
     .sourceMaps();
