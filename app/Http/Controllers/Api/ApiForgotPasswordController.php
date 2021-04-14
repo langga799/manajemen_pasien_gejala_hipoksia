@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ApiForgotPasswordController extends Controller
 {
 
-    protected $forgotPasswordService;
+    protected PatientForgotPasswordService $forgotPasswordService;
 
     
     public function __construct(PatientForgotPasswordService $forgotPassword)

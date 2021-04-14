@@ -23,6 +23,7 @@ class PatientProfileController extends Controller
     }
 
 
+
     public function update(Request $request){
 
         try{
@@ -79,5 +80,25 @@ class PatientProfileController extends Controller
                 'message' => 'gambar gagal diupload'
             ]);
         }
+    }
+
+
+
+    public function getUserPhoto(Request $request){
+        $base64Format = $this->patientService->getUserPhoto($request);
+        
+        if($base64Format != null){
+            return response()->json([
+                'code' => 200,
+                'status' => 'berhasil',
+                'message' => $base64Format
+            ]);
+        }
+
+        return response()->json([
+            'code' => 400,
+            'status' => 'gagal',
+            'message' => 'gambar gagal diupload'
+        ]);
     }
 }

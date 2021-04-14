@@ -4,7 +4,6 @@ namespace App\Repositories\UserRepository\Implement;
 
 use App\Repositories\UserRepository\UserRepository;
 use App\Models\Patient;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PatientRepository implements UserRepository{
@@ -41,8 +40,13 @@ class PatientRepository implements UserRepository{
     {
         $idPatient = $userAuth->id;
 
-        $path = Storage::putFile('public/profiles', $photo);
+        $imageName = time() . '.' . 'png';
 
+        // $path = Storage::putFile('public/profiles', $imageName);
+        $path = "public/profiles/$imageName";
+
+        Storage::disk('public-image')->put($imageName, $photo);
+        
         $this->patientModel::find($idPatient)
                 ->update([
                     'photo' => $path
@@ -51,5 +55,17 @@ class PatientRepository implements UserRepository{
         $patientPhotoUpdated = $this->patientModel::find($idPatient);
 
         return $patientPhotoUpdated;
+    }
+
+
+    public function getPhotoProfile($user_id)
+    {
+        $filePath = $this->patientModel::find($user_id)->photo;
+        
+        if($filePath != null){
+            return $filePath;
+        }
+
+        return null;
     }
 }

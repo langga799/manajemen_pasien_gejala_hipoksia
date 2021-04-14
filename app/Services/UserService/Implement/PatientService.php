@@ -52,12 +52,33 @@ class PatientService implements UserService{
             return;
         }
 
-        $patientPhotoFile = $request->file('photo');
+        // get base 64 file
+        $patientPhotoFile = $request->photo;
 
+        // get patient authenticated
         $patientHasBeenAuthenticated = Auth::guard('patientapi')->user();
         
-        $patientPhotoUpdated = $this->patientRepository->savePhotoProfile($patientHasBeenAuthenticated, $patientPhotoFile);
+        // convert to image
+        $image = convertBase64ToImage($patientPhotoFile);
+
+        // save profile
+        $patientPhotoUpdated = $this->patientRepository->savePhotoProfile($patientHasBeenAuthenticated, $image);
 
         return $patientPhotoUpdated;
+    }
+
+
+    public function getUserPhoto($request)
+    {
+        $patientHasBeenAuthenticated = Auth::guard('patientapi')->user();
+
+        $imagePath = $this->patientRepository->getPhotoProfile($patientHasBeenAuthenticated->id);
+        
+        if($imagePath != null){
+            $base64 =  convertImageToBase64($imagePath);
+            return $base64;
+        }
+
+        return null;
     }
 }

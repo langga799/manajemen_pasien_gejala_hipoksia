@@ -44,6 +44,10 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         -   [Pasien](#up_pasien)
     -   [Upload Photo](#photo)
         -   [Pasien](#ph_pasien)
+    -   [Get Photo](#get_photo)
+        -   [Pasien](#get_ph_pasien)
+    -   [Get Pasien](#get_biodata)
+        -   [Pasien](#get_patient)
 -   [Reset Password](#reset_passowrd)
     -   [Forgot](#forgot)
         -   [Pasien](#forgot_pasien)
@@ -51,6 +55,8 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         -   [Pasien](#reset_pasien)
 -   [Geolokasi](#geolokasi)
 -   [Monitoring](#monitoring)
+    -   [Insert Spo2 & Bpm](#insert_sensor)
+        -   [Pasient](#sen_patient)
 -   [Rekam Medis](#rekam_medis)
 
 # <a name="autentikasi"></a>Autentikasi
@@ -64,7 +70,7 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/login'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
 -   Body
 
 ```json
@@ -114,7 +120,7 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/register'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
 -   Body
 
 ```json
@@ -166,7 +172,7 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/logout'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
 -   Body
 
 ```json
@@ -206,7 +212,7 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/update'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
     -   Authorization : Bearer
 -   Body
 
@@ -262,13 +268,13 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/add-profile-photo'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
     -   Authorization : Bearer
 -   Body
 
 ```json
 {
-    "photo": file.jpg
+    "photo": "base64 format"
 }
 ```
 
@@ -301,7 +307,47 @@ Response :
 }
 ```
 
-# Reset Password
+## <a name="get_photo"></a>Get Photo
+
+#### <a name="get_ph_pasien"></a>Pasien
+
+Request :
+
+-   Method : POST
+-   Endpoint : 'patient/user-profile'
+-   Header :
+    -   Content-Type : application/json
+    -   Authorization : Bearer
+
+Response :
+
+-   Success :
+
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "message": "data:image/png;base64,random_string_base64"
+}
+```
+
+-   Error :
+
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "gambar gagal diupload"
+}
+```
+
+## <a name="get_biodata"></a>Get Biodata
+
+#### <a name="biodata_pasien"></a>Pasien
+
+<!-- TODO: buat API get Data Pasien -->
+
+# <a name="reset_password"></a>Reset Password
 
 ## <a name="forgot"></a>Forgot
 
@@ -312,7 +358,7 @@ Request :
 -   Method : POST
 -   Endpoint : 'patient/forgot-password'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
 -   Body:
 
 ```json
@@ -350,7 +396,7 @@ Response :
 -   Method : POST
 -   Endpoint : 'patient/reset-password'
 -   Header :
-    -   Accept : application/json
+    -   Content-Type : application/json
 -   Body:
 
 ```json
@@ -380,5 +426,47 @@ Response :
     "code": 400,
     "status": "failed",
     "message": "check your param or invalid token"
+}
+```
+
+# <a name="monitoring"></a>Monitoring
+
+## <a name="insert_sensor"></a>Insert Spo2 & Bpm
+
+#### <a name="sen_pasien"></a>Pasien
+
+-   Method : POST
+-   Endpoint : 'patient/insert-sensor'
+-   Header :
+    -   Content-Type : application/json
+    -   Authorization : Bearer
+-   Body:
+
+```json
+{
+    "spo2": 99,
+    "bpm": 90
+}
+```
+
+Response :
+
+-   Success
+
+```json
+{
+    "code": 200,
+    "status": "berhasil",
+    "message": "data berhasil ditambahkan"
+}
+```
+
+-   Failed
+
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "data gagal ditambahkan"
 }
 ```

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ApiForgotPasswordController;
 use App\Http\Controllers\Api\PatientAuthApiController;
+use App\Http\Controllers\Api\PatientMonitoringController;
 use App\Http\Controllers\Api\PatientProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('patient')->group(function(){
     
     /**
-     * * Route yang ditujukan untuk autententikasi pasien
+     * * Route autentikasi pasien
      */
     Route::post('/register', [PatientAuthApiController::class, 'register']);
     Route::post('/login', [PatientAuthApiController::class, 'login']);
@@ -30,6 +31,26 @@ Route::prefix('patient')->group(function(){
     Route::group(['middleware' => 'auth:patientapi'], function(){
         Route::post('/update', [PatientProfileController::class, 'update']);
         Route::post('/add-profile-photo', [PatientProfileController::class, 'saveUserProfile']);
+        Route::post('/user-profile', [PatientProfileController::class, 'getUserPhoto']);
+
+        
+        /**
+         * * Route monitoring pasien
+         * TODO: buat route untuk monitoring pasien
+         */
+        Route::post('/insert-sensor', [PatientMonitoringController::class, 'insert']);
+
+
+
+        /**
+         * * Route geolokasi pasien
+         * TODO: buat route untuk geolokasi pasien
+         */
+
+        /**
+         * * Route rekam medis pasien
+         * TODO: buat route untuk rekam medis pasien
+         */
     });
 });
 

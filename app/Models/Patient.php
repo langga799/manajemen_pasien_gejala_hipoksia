@@ -23,4 +23,13 @@ class Patient extends Model implements CanResetPassword
         'tanggal_lahir',
         'alamat'
     ];
+
+
+    /**
+     * Patient has many spo2 and bpm data
+     */
+    public function sensors()
+    {
+        return $this->hasMany(Sensor::class);
+    }
 }
