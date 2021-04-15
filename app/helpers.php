@@ -32,9 +32,9 @@ function convertImageToBase64($fileName){
  * @param base64 file base64 yang dienkripsi
  */
 function convertBase64ToImage($base64){
-    $image_parts = explode(",", $base64);
+    // $image_parts = explode(",", $base64);
 
-    $image_base64 = base64_decode($image_parts[1]);
+    $image_base64 = base64_decode($base64);
 
     // file_put_contents($file, $image_base64);    
     return $image_base64;
