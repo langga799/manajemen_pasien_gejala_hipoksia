@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\ApiForgotPasswordController;
-use App\Http\Controllers\Api\PatientAuthApiController;
-use App\Http\Controllers\Api\PatientMonitoringController;
-use App\Http\Controllers\Api\PatientProfileController;
+use App\Http\Controllers\Api\Device\PulseOximetryController;
+use App\Http\Controllers\Api\Patient\ApiForgotPasswordController;
+use App\Http\Controllers\Api\Patient\PatientAuthApiController;
+use App\Http\Controllers\Api\Patient\PatientDeviceController;
+use App\Http\Controllers\Api\Patient\PatientProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,12 +35,24 @@ Route::prefix('patient')->group(function(){
         Route::post('/user-profile', [PatientProfileController::class, 'getUserPhoto']);
 
         
-        /**
-         * * Route monitoring pasien
-         * TODO: buat route untuk monitoring pasien
-         */
-        Route::post('/insert-sensor', [PatientMonitoringController::class, 'insert']);
 
+        Route::prefix('hardware')->group(function(){
+            /**
+             * * Route hardware device
+             */
+            Route::post('/create', [PatientDeviceController::class, 'savePatientDevice']);
+            Route::post('/enable', [PatientDeviceController::class, 'enableDevice']);
+            Route::post('/disable', [PatientDeviceController::class, 'disableDevice']);
+        });
+
+
+
+        Route::prefix('monitoring')->group(function(){
+            /**
+             * * Route untuk mengisi data monitoring
+             */
+        });
+        
 
 
         /**
@@ -52,6 +65,15 @@ Route::prefix('patient')->group(function(){
          * TODO: buat route untuk rekam medis pasien
          */
     });
+
+
+    /**
+     * * Hardware
+     */
+});
+
+Route::prefix('oximetry')->group(function(){
+    Route::post('/insert', [PulseOximetryController::class, 'storeDataSensor']);
 });
 
 

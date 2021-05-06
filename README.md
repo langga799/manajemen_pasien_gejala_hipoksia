@@ -53,16 +53,30 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         -   [Pasien](#forgot_pasien)
     -   [Reset](#reset)
         -   [Pasien](#reset_pasien)
+-   [Device](#device)
+    -   [Create Hardware Identifier](#d_hardware)
+        -   [Pasien](#dh_pasien)
+    -   [Mobile Identifier](#d_mobile)
+        -   [Pasien](#dm_pasien)
+    -   [Enable/Disable Device](#en_device)
+        -   [Pasien](#en_pasien)
 -   [Geolokasi](#geolokasi)
--   [Monitoring](#monitoring)
-    -   [Insert Spo2 & Bpm](#insert_sensor)
-        -   [Pasient](#sen_patient)
+-   [Monitoring](#m_monitoring)
+    -   [Get Data Monitoring Pasien](#m_data_patient)
+        -   [Pasien](#m_pasien)
 -   [Rekam Medis](#rekam_medis)
 
+
+# API Hardware
+-   [Pulse Oximetry](#pulse)
+    -   [Insert Spo2 & Bpm](#pulse_insert)
+        -   [Pasien](#sen_patient)
+
+<!-- ============= AUTHENTICATION START ============= -->
 # <a name="autentikasi"></a>Autentikasi
 
+<!-- ============= LOGIN START ============= -->
 ## <a name="login"></a>Login
-
 #### <a name="l_pasien"></a>Login Pasien
 
 Request :
@@ -110,9 +124,13 @@ Response :
     "message": "pesan gagal"
 }
 ```
+<!-- ============= LOGIN END ============= -->
 
+
+
+
+<!-- ============= REGISTER START ============= -->
 ## <a name="register"></a>Register
-
 #### <a name="r_pasien"></a>Register Pasien
 
 Request :
@@ -162,9 +180,12 @@ Response :
     "message": "pesan gagal"
 }
 ```
+<!-- ============= REGISTER END ============= -->
 
+
+
+<!-- ============= LOGOUT START ============= -->
 ## <a name="logout"></a>Logout
-
 #### <a name="lg_pasien"></a>Logout Pasien
 
 Request :
@@ -202,9 +223,12 @@ Response :
     "message": "pesan logout"
 }
 ```
+<!-- ============= LOGOUT END ============= -->
 
+
+
+<!-- ============= UPDATE START ============= -->
 ## <a name="update"></a>Update
-
 #### <a name="up_pasien"></a>Update Pasien
 
 Request :
@@ -258,9 +282,12 @@ Response :
     "message": "pesan update"
 }
 ```
+<!-- ============= UPDATE END ============= -->
 
+
+
+<!-- ============= UPDATE PHOTO START ============= -->
 ## <a name="photo"></a>Update Photo
-
 #### <a name="ph_pasien"></a>Upload Photo Pasien
 
 Request :
@@ -340,17 +367,24 @@ Response :
     "message": "gambar gagal diupload"
 }
 ```
+<!-- ============= UPDATE PHOTO END ============= -->
 
+
+
+<!-- ============= GET PATIENT START ============= -->
 ## <a name="get_biodata"></a>Get Biodata
-
 #### <a name="biodata_pasien"></a>Pasien
+<!-- ============= GET PATIENT END ============= -->
+<!-- ============= AUTHENTICATION END ============= -->
 
-<!-- TODO: buat API get Data Pasien -->
 
+
+
+<!-- ============= PASSWORD START ============= -->
 # <a name="reset_password"></a>Reset Password
 
+<!-- ============= FORGOT PASSWORD START ============= -->
 ## <a name="forgot"></a>Forgot
-
 #### <a name="forgot_pasien"></a>Forgot Password Pasien
 
 Request :
@@ -388,9 +422,12 @@ Response :
     "message": "error message"
 }
 ```
+<!-- ============= FORGOT PASSWORD END ============= -->
 
+
+
+<!-- ============= RESET PASSWORD START ============= -->
 ## <a name="reset"></a>Reset
-
 #### <a name="reset_pasien"></a>Reset Password Pasien
 
 -   Method : POST
@@ -428,45 +465,116 @@ Response :
     "message": "check your param or invalid token"
 }
 ```
+<!-- ============= RESET PASSWORD END ============= -->
+<!-- ============= PASSWORD END ============= -->
 
-# <a name="monitoring"></a>Monitoring
 
-## <a name="insert_sensor"></a>Insert Spo2 & Bpm
 
-#### <a name="sen_pasien"></a>Pasien
-
+<!-- ============= DEVICE START ============= -->
+# <a name="device"></a>Device
+<!-- ============= HARDWARE START ============= -->
+## <a name="d_hardware"></a>Create Hardware Identifier
+### <a name="dh_pasien"></a>Pasien
 -   Method : POST
--   Endpoint : 'patient/insert-sensor'
--   Header :
+-   Endpoint : 'patient/hardware/create'
+-   Header : 
     -   Content-Type : application/json
-    -   Authorization : Bearer
+    -   Authorization: Bearer
 -   Body:
-
 ```json
 {
-    "spo2": 99,
-    "bpm": 90
+    "serial_number" : "serial_number_hardware"
 }
 ```
 
-Response :
-
--   Success
-
+Response:
+-   Success:
 ```json
 {
     "code": 200,
     "status": "berhasil",
-    "message": "data berhasil ditambahkan"
+    "message": "device berhasil ditambahkan",
+    "device": "serial_number"
 }
 ```
 
--   Failed
-
+-   Failed:
 ```json
 {
     "code": 400,
     "status": "gagal",
-    "message": "data gagal ditambahkan"
+    "message": "device gagal ditambahkan",
 }
 ```
+<!-- ============= HARDWARE END ============= -->
+
+
+
+<!-- ============= ANDROID START ============= -->
+## <a name="d_mobile"></a>Create Android Identifier
+### <a name="dm_pasien"></a>Pasien
+<!-- ============= END START ============= -->
+
+
+
+<!-- ============= ENABLE/DISABLE START ============= -->
+## <a name="en_device"></a>Enable/Disable Device
+### <a name="en_pasien"></a>Pasien
+-   Method: POST
+-   Endpoint: 'patient/device/enable' (menyalakan perangkat)
+-   Endpoint: 'patient/device/disable' (mematikan perangkat)
+-   Header: 
+    -   Content-Type : application/json
+    -   Authorization : Bearer
+-   Body:
+```json
+{
+    "status" : "on/off",
+}
+```
+
+Response :
+-   Success:
+```json
+{
+    "code" : 200,
+    "status" : "berhasil",
+    "message" : "device berhasil diaktifkan/dinonaktifkan"
+}
+```
+
+-   Failed :
+```json
+{
+    "code" : 400,
+    "status" : "gagal",
+    "message" : "device gagal diaktifkan/dinonaktifkan"
+}
+```
+
+<!-- ============= ENABLE/DISABLE END ============= -->
+<!-- ============= DEVICE END ============= -->
+
+
+
+<!-- ============= DEVICE START ============= -->
+# <a name="pulse"></a>Pulse Oximetry
+<!-- ============= SENSOR START ============= -->
+## <a name="pulse_insert"></a>Insert Spo2 & Bpm
+#### <a name="sen_pasien"></a>Pasien
+
+-   Method : POST
+-   Endpoint : 'oximetry/insert'
+-   Header :
+    -   Content-Type : application/json
+-   Body:
+
+```json
+{
+    "serial_number" : "serial_number_device",
+    "spo2": 99,
+    "bpm": 90
+}
+```
+<!-- ============= SENSOR END ============= -->
+<!-- ============= DEVICE END ============= -->

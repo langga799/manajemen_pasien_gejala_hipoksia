@@ -6,9 +6,6 @@ use App\Models\Patient;
 use App\Repositories\MonitoringRepository\MonitoringRepository;
 
 
-const SUCCESS = true;
-
-
 class PatientMonitoringRepository implements MonitoringRepository{
     /**
      * *Instansiasi objek pasien
@@ -21,14 +18,8 @@ class PatientMonitoringRepository implements MonitoringRepository{
     }
 
     
-    public function store($data, $patient_id)
+    public function getData($data, $patient_id)
     {
-        // cari pasien
-        $currentPatient = $this->patient::find($patient_id);
 
-        // insert data
-        $currentPatient->sensors()->create($data);
-
-        return SUCCESS;
     }
 }

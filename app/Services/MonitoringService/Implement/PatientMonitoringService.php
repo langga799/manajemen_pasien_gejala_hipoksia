@@ -19,24 +19,8 @@ class PatientMonitoringService implements MonitoringService{
          $this->repositoryMonitoring = $repo;
      }
 
-    
-     /**
-      * * Simpan data sensor
-      */
-    public function storeSensorData(Request $data)
+    public function getSensorData(Request $data)
     {
-        // ambil data pasien yang terautentikasi
-        $patientHasBeenAuthenticated = Auth::guard('patientapi')->user();
-        
-        // ambil data sensor
-        $sensorData = $data->all();
-
-        if($sensorData != null){
-            // simpan data sensor
-            $result = $this->repositoryMonitoring->store($sensorData, $patientHasBeenAuthenticated->id);
-            return $result;
-        }
-        
-        return;       
+             
     }
 }

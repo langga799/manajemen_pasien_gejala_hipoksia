@@ -26,10 +26,10 @@ class Patient extends Model implements CanResetPassword
 
 
     /**
-     * Patient has many spo2 and bpm data
+     * * Patient has one device
      */
-    public function sensors()
+    public function userDevice()
     {
-        return $this->hasMany(Sensor::class);
+        return $this->hasOne(UserDevice::class);
     }
 }

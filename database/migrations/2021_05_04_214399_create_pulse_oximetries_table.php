@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSensorsTable extends Migration
+class CreatePulseOximetriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateSensorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('pulse_oximetries', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('patient_id')->unsigned();
-            $table->string('spo2')->nullable();
-            $table->string('bpm')->nullable();
-            $table->timestamps();
-            $table->foreign('patient_id')
+            $table->bigInteger('user_device_id')->unsigned();
+            $table->string('spo2');
+            $table->string('bpm');
+            $table->foreign('user_device_id')
                     ->references('id')
-                    ->on('patients')
+                    ->on('user_devices')
                     ->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
@@ -33,6 +33,6 @@ class CreateSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('pulse_oximetries');
     }
 }

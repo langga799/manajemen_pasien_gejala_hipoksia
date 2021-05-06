@@ -26,6 +26,7 @@ function convertImageToBase64($fileName){
     return $base64;
 }
 
+
 /**
  * * Konversi base64 ke gambar
  * 
