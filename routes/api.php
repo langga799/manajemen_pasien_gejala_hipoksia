@@ -20,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('patient')->group(function(){
     
-    /**
-     * * Route autentikasi pasien
-     */
     Route::post('/register', [PatientAuthApiController::class, 'register']);
     Route::post('/login', [PatientAuthApiController::class, 'login']);
     Route::post('/logout', [PatientAuthApiController::class, 'logout']);
@@ -37,9 +34,6 @@ Route::prefix('patient')->group(function(){
         
 
         Route::prefix('hardware')->group(function(){
-            /**
-             * * Route hardware device
-             */
             Route::post('/create', [PatientDeviceController::class, 'savePatientDevice']);
             Route::post('/enable', [PatientDeviceController::class, 'enableDevice']);
             Route::post('/disable', [PatientDeviceController::class, 'disableDevice']);
@@ -48,9 +42,7 @@ Route::prefix('patient')->group(function(){
 
 
         Route::prefix('monitoring')->group(function(){
-            /**
-             * * Route untuk mengisi data monitoring
-             */
+
         });
         
 
@@ -65,15 +57,15 @@ Route::prefix('patient')->group(function(){
          * TODO: buat route untuk rekam medis pasien
          */
     });
-
-
-    /**
-     * * Hardware
-     */
 });
 
+
+/**
+ * * Route Device
+ */
 Route::prefix('oximetry')->group(function(){
     Route::post('/insert', [PulseOximetryController::class, 'storeDataSensor']);
+    Route::get('/data', [PulseOximetryController::class, 'getDataSensor']);
 });
 
 

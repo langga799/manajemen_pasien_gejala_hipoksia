@@ -21,9 +21,17 @@ class PulseOximetryRepository implements HardwareRepository{
         $patientDevice = $this->userDevice::where('serial_number', $serial_number)->first();
 
         // insert data
-        $patientDevice->pulseOximetry()->create($data);
+        $patientDevice->pulseOximetries()->create($data);
 
         return $patientDevice;
+    }
+
+    public function getMeasurements($serial_number)
+    {
+        $userDevice = $this->userDevice::where('serial_number', $serial_number)->first();
+        $data = $userDevice->pulseOximetries()->get()->all();
+        
+        return $data;
     }
 
     public function getDeviceStatus($serial_number)
@@ -31,5 +39,12 @@ class PulseOximetryRepository implements HardwareRepository{
         $deviceStatus = $this->userDevice::where('serial_number', $serial_number)->first()->status;
         
         return $deviceStatus;
+    }
+
+    public function getDevice($serial_number)
+    {
+        $isDeviceExist = $this->userDevice::where('serial_number', $serial_number)->exists();
+
+        return $isDeviceExist;
     }
 }

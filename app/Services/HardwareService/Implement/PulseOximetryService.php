@@ -40,4 +40,17 @@ class PulseOximetryService implements HardwareService{
          
          return; 
     }
+
+    public function getSensorData(Request $request)
+    {
+        // cek apakah device ada
+        $isDeviceExist = $this->repositoryOximeter->getDevice($request->serial_number);
+        
+        if($isDeviceExist){
+            $sensorData = $this->repositoryOximeter->getMeasurements($request->serial_number);   
+            return $sensorData;
+        }
+
+        return $isDeviceExist;
+    }
 }

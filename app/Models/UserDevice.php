@@ -32,7 +32,7 @@ class UserDevice extends Model
     /**
      * * Device has pulse oximetry
      */
-    public function pulseOximetry(){
+    public function pulseOximetries(){
         return $this->hasMany(PulseOximetry::class);
     }
 }

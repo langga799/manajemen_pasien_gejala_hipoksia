@@ -62,8 +62,6 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
         -   [Pasien](#en_pasien)
 -   [Geolokasi](#geolokasi)
 -   [Monitoring](#m_monitoring)
-    -   [Get Data Monitoring Pasien](#m_data_patient)
-        -   [Pasien](#m_pasien)
 -   [Rekam Medis](#rekam_medis)
 
 
@@ -71,6 +69,8 @@ Hardware yang terintegrasi ini bertugas untuk mendapatkan data saturasi oksigen 
 -   [Pulse Oximetry](#pulse)
     -   [Insert Spo2 & Bpm](#pulse_insert)
         -   [Pasien](#sen_patient)
+    -   [Get Data Sensor](#pulse_get)
+        -   [Pasien](#pulse_data)
 
 <!-- ============= AUTHENTICATION START ============= -->
 # <a name="autentikasi"></a>Autentikasi
@@ -557,9 +557,20 @@ Response :
 
 
 
+<!-- ============= MONITORING START ============= -->
+# <a name="m_monitoring"></a>Monitoring
+
+<!-- ============= GET PULSE DATA START ============= -->
+## <a name="m_data_patient"></a>Get Pulse Data
+#### <a name="m_pasien"></a>Pasien
+
+<!-- ============= GET PULSE DATA END ============= -->
+<!-- ============= MONITORING END ============= -->
+
+
 <!-- ============= DEVICE START ============= -->
 # <a name="pulse"></a>Pulse Oximetry
-<!-- ============= SENSOR START ============= -->
+<!-- ============= INSERT SENSOR START ============= -->
 ## <a name="pulse_insert"></a>Insert Spo2 & Bpm
 #### <a name="sen_pasien"></a>Pasien
 
@@ -576,5 +587,62 @@ Response :
     "bpm": 90
 }
 ```
-<!-- ============= SENSOR END ============= -->
+<!-- ============= INSERT SENSOR END ============= -->
+
+
+
+<!-- ============= GET DATA SENSOR START ============= -->
+## <a name="pulse_get"></a>Get Data Sensor
+#### <a name="pulse_data"></a>Pasien
+-   Method : GET
+-   Endpoint : 'oximetry/data'
+-   Header : 
+    -   Content-Type : application/json
+-   Body :
+
+```json
+{
+    "serial_number" : "serial_number_device"
+}
+```
+
+Response :
+-   Success :
+```json
+{
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "user_device_id": 1,
+            "spo2": "99",
+            "bpm": "100",
+            "created_at": "2021-05-05T11:26:19.000000Z",
+            "updated_at": "2021-05-05T11:26:19.000000Z"
+        },
+        {
+            "id": 2,
+            "user_device_id": 1,
+            "spo2": "99",
+            "bpm": "100",
+            "created_at": "2021-05-05T11:26:29.000000Z",
+            "updated_at": "2021-05-05T11:26:29.000000Z"
+        },
+    ]
+}
+```
+
+-   Failed 
+```json
+{
+    "code": 400,
+    "status": "gagal",
+    "message": "Device tidak terdaftar"
+}
+```
+
+<!-- ============= GET DATA SENSOR END ============= -->
+
+
+
 <!-- ============= DEVICE END ============= -->
